@@ -6,23 +6,13 @@
 /*   By: elpah <elpah@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/09 04:17:39 by elpah             #+#    #+#             */
-/*   Updated: 2025/09/09 05:01:49 by elpah            ###   ########.fr       */
+/*   Updated: 2025/09/15 07:24:25 by elpah            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
 
 #include <iostream>
 #include <string>
 #include <ctype.h>
-
-
-// $>./megaphone "shhhhh... I think the students are asleep..."
-// SHHHHH... I THINK THE STUDENTS ARE ASLEEP...
-// $>./megaphone Damnit " ! " "Sorry students, I thought this thing was off."
-// DAMNIT ! SORRY STUDENTS, I THOUGHT THIS THING WAS OFF.
-// $>./megaphone
-// * LOU
-
 
 int main(int ac, char **av)
 {
@@ -30,9 +20,7 @@ int main(int ac, char **av)
     int j; 
 
     if(ac <2)
-    {
         std::cout <<"* LOUD AND UNBEARABLE FEEDBACK NOISE *" << std::endl;
-    }
     else
     {
         for(i = 1; i < ac; i++)

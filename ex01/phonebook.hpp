@@ -4,18 +4,16 @@
 #include "contact.hpp"
 
 class PhoneBook {
+    private:
+    Contact _contacts[8];
+    int _index;
+    int _total_contacts;
+
     public:
     PhoneBook();
     ~PhoneBook();
-    
-    Contact contacts[8];
-    int index;
-    int total_contacts;
-
-    PhoneBook();
-    void addContact();
-    void searchContact();
     void displayContacts();
+    void addContact(Contact newContact);
     void displayContactDetails(int index);
 };
 
