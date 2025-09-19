@@ -7,7 +7,6 @@ class PhoneBook {
     private:
     Contact _contacts[8];
     int _index;
-    int _total_contacts;
 
     public:
     PhoneBook();
@@ -15,6 +14,7 @@ class PhoneBook {
     void displayContacts();
     void addContact(Contact newContact);
     void displayContactDetails(int index);
+    int total_contacts;
 };
 
 #endif
