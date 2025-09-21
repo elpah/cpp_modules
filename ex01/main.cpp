@@ -6,7 +6,7 @@
 /*   By: elpah <elpah@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/09 06:03:54 by elpah             #+#    #+#             */
-/*   Updated: 2025/09/19 04:57:00 by elpah            ###   ########.fr       */
+/*   Updated: 2025/09/21 04:49:42 by elpah            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,7 +52,7 @@ void search(PhoneBook &phoneBook)
 {
     std::string input;
     phoneBook.displayContacts();
-
+    std::cout << "Enter the index of a contact to see details" << std::endl;
     while ((std::getline(std::cin, input)) && !check_number(input, phoneBook))
     {
         std::cout << "Invalid index. Enter a number between 1 and " << phoneBook.total_contacts << ": ";
@@ -75,15 +75,14 @@ int main()
 {
     PhoneBook phoneBook;
     std::string command;
-
-    std::cout << "Please enter a command ADD, SEARCH or EXIT" << std::endl;
-
     while (1)
     {
+        std::cout << "Please enter a command ADD, SEARCH or EXIT" << std::endl;
         if (!std::getline(std::cin, command))
             break;
         if (command == "ADD")
             add(phoneBook);
+
         else if (command == "SEARCH")
             search(phoneBook);
         else if (command == "EXIT")

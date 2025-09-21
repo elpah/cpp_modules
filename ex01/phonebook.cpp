@@ -6,7 +6,7 @@
 /*   By: elpah <elpah@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/09 06:04:31 by elpah             #+#    #+#             */
-/*   Updated: 2025/09/19 04:48:55 by elpah            ###   ########.fr       */
+/*   Updated: 2025/09/21 04:43:33 by elpah            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
 
 PhoneBook::PhoneBook() : _index(0), total_contacts(0) {}
 
-Contact::~Contact()
+PhoneBook::~PhoneBook()
 {
 }
 
@@ -32,9 +32,9 @@ void PhoneBook::addContact(Contact newContact)
 
 void printHeader()
 {
-    std::cout << "--------------------------------------------" << std::endl;
+    std::cout << "---------------------------------------------" << std::endl;
     std::cout << "|     Index| FirstName|  LastName|  Nickname|" << std::endl;
-    std::cout << "--------------------------------------------" << std::endl;
+    std::cout << "---------------------------------------------" << std::endl;
 }
 
 void printString(std::string value)
@@ -64,6 +64,7 @@ void PhoneBook::displayContacts()
 
             std::cout << "|";
             std::cout << std::setw(10) << i + 1;
+            std::cout << "|";
             printString(this->_contacts[i].getFirstName());
             std::cout << "|";
             printString(this->_contacts[i].getLastName());
@@ -73,7 +74,7 @@ void PhoneBook::displayContacts()
             std::cout << "\n";
         }
     }
-    std::cout << "--------------------------------------------" << std::endl;
+    std::cout << "---------------------------------------------" << std::endl;
 }
 
 void PhoneBook::displayContactDetails(int index)
