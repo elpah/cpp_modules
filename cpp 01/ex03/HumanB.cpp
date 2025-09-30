@@ -1,32 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Weapon.cpp                                         :+:      :+:    :+:   */
+/*   HumanB.cpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: elpah <elpah@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/09/30 03:33:22 by elpah             #+#    #+#             */
-/*   Updated: 2025/09/30 04:51:46 by elpah            ###   ########.fr       */
+/*   Created: 2025/09/30 03:33:14 by elpah             #+#    #+#             */
+/*   Updated: 2025/09/30 04:50:03 by elpah            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Weapon.hpp"
+#include "HumanB.hpp"
 
-Weapon::Weapon(std::string i_type)
+HumanB::HumanB(std::string name)
 {
-	this->_type = i_type;
+	_name = name;
+	_weapon = NULL;
 }
 
-Weapon::~Weapon()
+HumanB::~HumanB() {}
+
+void HumanB::setWeapon(Weapon &n_weapon)
 {
+	_weapon = &n_weapon;
 }
 
-const std::string& Weapon::getType()
+void HumanB::attack()
 {
-	return (this->_type);
-}
-
-void Weapon::setType(std::string s_type)
-{
-	this->_type = s_type;
+	if (!this->_weapon)
+	{
+		std::cout << this->_name << " attacks." <<std::endl;
+	}
+	else
+	{
+		std::cout << this->_name << " attacks with their " << this->_weapon->getType() << std::endl;
+	}
 }

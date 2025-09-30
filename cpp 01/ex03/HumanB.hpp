@@ -1,32 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Weapon.cpp                                         :+:      :+:    :+:   */
+/*   HumanB.hpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: elpah <elpah@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/09/30 03:33:22 by elpah             #+#    #+#             */
-/*   Updated: 2025/09/30 04:51:46 by elpah            ###   ########.fr       */
+/*   Created: 2025/09/30 03:33:16 by elpah             #+#    #+#             */
+/*   Updated: 2025/09/30 04:31:20 by elpah            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#ifndef HUMAN_B
+#define HUMAN_B
+
+#include <iostream>
 #include "Weapon.hpp"
 
-Weapon::Weapon(std::string i_type)
+class HumanB
 {
-	this->_type = i_type;
-}
+private:
+	Weapon *_weapon;
+	std::string _name;
 
-Weapon::~Weapon()
-{
-}
+public:
+	HumanB(std::string name);
+	~HumanB();
+	void setWeapon(Weapon &n_weapon);
+	void attack();
+};
 
-const std::string& Weapon::getType()
-{
-	return (this->_type);
-}
-
-void Weapon::setType(std::string s_type)
-{
-	this->_type = s_type;
-}
+#endif
