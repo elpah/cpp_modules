@@ -1,21 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   Harl.hpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: eobeng <eobeng@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/10/03 17:18:13 by eobeng            #+#    #+#             */
-/*   Updated: 2025/10/03 17:19:03 by eobeng           ###   ########.fr       */
+/*   Created: 2025/10/03 18:49:06 by eobeng            #+#    #+#             */
+/*   Updated: 2025/10/03 18:53:16 by eobeng           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Zombie.hpp"
+#ifndef HARL_HPP
+#define HARL_HPP
+#include <string>
+#include <iostream>
 
-int main()
+class Harl
 {
-	Zombie *testZombie;
-	testZombie = newZombie("Elpah_heap");
-	randomChump("Elpah_Stack");
-	delete testZombie;
-}
+private:
+    void debug(void);
+    void info(void);
+    void warning(void);
+    void error(void);
+
+public:
+    Harl();
+    ~Harl();
+    void complain(std::string level);
+};
+
+#endif
