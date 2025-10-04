@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   phonebook.cpp                                      :+:      :+:    :+:   */
+/*   Phonebook.cpp                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: elpah <elpah@student.42.fr>                +#+  +:+       +#+        */
+/*   By: eobeng <eobeng@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/09/09 06:04:31 by elpah             #+#    #+#             */
-/*   Updated: 2025/09/21 04:57:47 by elpah            ###   ########.fr       */
+/*   Created: 2025/10/03 17:18:13 by eobeng            #+#    #+#             */
+/*   Updated: 2025/10/04 19:31:32 by eobeng           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,11 +51,6 @@ void printString(std::string value)
 
 void PhoneBook::displayContacts()
 {
-    if (total_contacts < 1)
-    {
-        std::cout << "Phonebook is empty" << std::endl;
-        return ;
-    }
     printHeader();
     for (int i = 0; i < total_contacts; i++)
     {

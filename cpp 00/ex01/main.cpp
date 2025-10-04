@@ -3,15 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: elpah <elpah@student.42.fr>                +#+  +:+       +#+        */
+/*   By: eobeng <eobeng@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/09/09 06:03:54 by elpah             #+#    #+#             */
-/*   Updated: 2025/09/21 04:58:01 by elpah            ###   ########.fr       */
+/*   Created: 2025/10/03 17:18:13 by eobeng            #+#    #+#             */
+/*   Updated: 2025/10/04 19:31:25 by eobeng           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <iostream>
 #include <string>
+#include <stdlib.h>
 #include "Phonebook.hpp"
 #include "Contact.hpp"
 
@@ -50,6 +51,11 @@ bool check_number(std::string str, PhoneBook &phonebook)
 
 void search(PhoneBook &phoneBook)
 {
+    if (phoneBook.total_contacts < 1)
+    {
+        std::cout << "Phonebook is empty. Nothing to search." << std::endl;
+        return;
+    }
     std::string input;
     phoneBook.displayContacts();
     std::cout << "Enter the index of a contact to see details" << std::endl;
