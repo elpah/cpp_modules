@@ -72,6 +72,12 @@
 		"fstream": "cpp",
 		"numbers": "cpp",
 		"ranges": "cpp",
-		"span": "cpp"
+		"span": "cpp",
+		"print": "cpp",
+		"__verbose_abort": "cpp",
+		"execution": "cpp",
+		"queue": "cpp",
+		"stack": "cpp",
+		"variant": "cpp"
 	}
 }
