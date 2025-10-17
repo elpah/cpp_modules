@@ -8,7 +8,7 @@ RM			= rm -f
 
 OBJS		= $(SRC:.cpp=.o)
 
-NAME		= brain
+NAME		= AnimalAbstract
 
 all:		$(NAME)
 
