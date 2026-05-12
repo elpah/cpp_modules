@@ -22,10 +22,10 @@ public:
 	Form(const std::string &name, int gradeToSign, int gradeToExecute);
 	Form(const Form &other);
 	Form &operator=(const Form &other);
-	bool getIsSigned() const;
+	bool getIsSigned(void) const;
 	const std::string &getName(void) const;
-	int getGradeToSign() const;
-	int getGradeToExecute() const;
+	int getGradeToSign(void) const;
+	int getGradeToExecute(void) const;
 	void beSigned(const Bureaucrat &bureaucrat);
 	~Form();
 	class GradeTooHighException : public std::exception
