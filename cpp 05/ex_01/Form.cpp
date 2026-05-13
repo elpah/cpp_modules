@@ -79,6 +79,7 @@ Form::~Form()
 
 std::ostream &operator<<(std::ostream &out, const Form &input)
 {
+	out << std::boolalpha;
 	out << input.getName()
 		<< ", is signed: "
 		<< input.getIsSigned()
