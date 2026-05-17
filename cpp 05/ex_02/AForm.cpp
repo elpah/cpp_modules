@@ -77,11 +77,11 @@ void AForm::beSigned(const Bureaucrat &bureaucrat)
 	_isSigned = true;
 }
 
-void AForm::execute(Bureaucrat const &bureaucrat) const
+void AForm::execute(Bureaucrat const &executor) const
 {
 	if (!_isSigned)
 		throw NotSignedException();
-	if (bureaucrat.getGrade() > _gradeToExecute)
+	if (executor.getGrade() > _gradeToExecute)
 		throw GradeTooLowException();
 	executeAction();
 }
