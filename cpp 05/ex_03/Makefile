@@ -8,7 +8,7 @@ RM			= rm -f
 
 OBJS		= $(SRC:.cpp=.o)
 
-NAME		= formcreation
+NAME		= internForm
 
 all:		$(NAME)
 

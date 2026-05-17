@@ -5,28 +5,41 @@
 #include "ShrubberyCreationForm.hpp"
 #include "RobotomyRequestForm.hpp"
 #include "PresidentialPardonForm.hpp"
+#include "Intern.hpp"
 
 int main(void)
 {
 	try
 	{
-		std::srand(std::time(0));
+		Intern randomIntern;
+
+		AForm *shrub = randomIntern.makeForm(
+			"shrubbery_creation",
+			"home");
+
+		AForm *robot = randomIntern.makeForm(
+			"robotomy_request",
+			"Bender");
+
+		AForm *pardon = randomIntern.makeForm(
+			"presidential_pardon",
+			"Arthur Dent");
+
+		AForm *wrong = randomIntern.makeForm(
+			"dont_exist_form",
+			"target");
 		Bureaucrat boss("Boss", 1);
-		Bureaucrat manager("ceo", 10);
-		Bureaucrat employee("employee", 150);
+		boss.signForm(*shrub);
+		boss.executeForm(*shrub);
+		boss.signForm(*robot);
+		boss.executeForm(*robot);
+		boss.signForm(*pardon);
+		boss.executeForm(*pardon);
 
-		ShrubberyCreationForm shrub("home");
-		RobotomyRequestForm robot("Bender");
-		PresidentialPardonForm pardon("Arthur Dent");
-		boss.signForm(shrub);
-		boss.executeForm(shrub);
-		boss.signForm(robot);
-		boss.signForm(pardon);
-
-		manager.executeForm(shrub);
-		manager.executeForm(robot);
-		manager.executeForm(pardon);
-		employee.executeForm(shrub);
+		delete shrub;
+		delete robot;
+		delete pardon;
+		delete wrong;
 	}
 	catch (const std::exception &e)
 	{
