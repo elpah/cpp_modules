@@ -31,6 +31,7 @@ public:
 	virtual void executeAction() const = 0;
 	void execute(Bureaucrat const &bureaucrat) const;
 	virtual ~AForm();
+	
 	class GradeTooHighException : public std::exception
 	{
 	public:
