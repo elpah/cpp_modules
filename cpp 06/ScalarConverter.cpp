@@ -84,3 +84,31 @@ void PrintDouble(const std::string &input)
 				  << atof(input.c_str())
 				  << std::endl;
 }
+
+void PrintFloat(const std::string &input)
+{
+	if (input == "-inf" || input == "-inff")
+		std::cout << "float: -inff" << std::endl;
+	else if (input == "+inf" || input == "+inff")
+		std::cout << "float: +inff" << std::endl;
+	else if (input == "nan" || input == "nanf")
+		std::cout << "float: nanf" << std::endl;
+	else
+		std::cout << "float: "
+				  << std::fixed
+				  << std::setprecision(1)
+				  << static_cast<float>(atof(input.c_str()))
+				  << "f" << std::endl;
+}
+
+void PrintChar(const std::string &input)
+{
+	if (CheckIsInt(input) && atoi(input.c_str()) > 31 && atoi(input.c_str()) < 127)
+	{
+		std::cout << "char: " << static_cast<char>(atoi(input.c_str())) << std::endl;
+	}
+	else if (CheckIsInt(input) && ((atoi(input.c_str()) < 32 && atoi(input.c_str()) >= 0) || atoi(input.c_str()) == 127))
+		std::cout << "char: Non displayable" << std::endl;
+	else
+		std::cout << "char: impossible" << std::endl;
+}
