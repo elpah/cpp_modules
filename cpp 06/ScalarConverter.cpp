@@ -1,4 +1,5 @@
 #include "ScalarConverter.hpp"
+#include <iomanip>
 
 ScalarConverter::ScalarConverter() {}
 
@@ -56,4 +57,30 @@ bool CheckIsInt(const std::string &input)
 	if (atof(input.c_str()) - atoi(input.c_str()) != 0)
 		return (false);
 	return (true);
+}
+
+void PrintInt(const std::string &input)
+{
+	if (checkIsPseudoLiteral(input))
+	{
+		std::cout << "int: impossible." << std::endl;
+		return;
+	}
+	std::cout << "int: " << atoll(input.c_str()) << std::endl;
+}
+
+void PrintDouble(const std::string &input)
+{
+	if (input == "-inf" || input == "-inff")
+		std::cout << "double: -inf" << std::endl;
+	else if (input == "+inf" || input == "+inff")
+		std::cout << "double: +inf" << std::endl;
+	else if (input == "nan" || input == "nanf")
+		std::cout << "double: nan" << std::endl;
+	else
+		std::cout << "double: "
+				  << std::fixed
+				  << std::setprecision(1)
+				  << atof(input.c_str())
+				  << std::endl;
 }
