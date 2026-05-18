@@ -112,3 +112,16 @@ void PrintChar(const std::string &input)
 	else
 		std::cout << "char: impossible" << std::endl;
 }
+
+void ScalarConverter::convert(const std::string &input)
+{
+	if (checkInput(input))
+	{
+		PrintChar(input);
+		PrintInt(input);
+		PrintFloat(input);
+		PrintDouble(input);
+	}
+	else
+		std::cout << "Error: Invalid input format." << std::endl;
+}
