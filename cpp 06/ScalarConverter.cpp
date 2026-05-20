@@ -132,13 +132,13 @@ void PrintChar(const std::string &input)
 {
 	if (input.length() == 1 && !isdigit(input[0]))
 	{
-		std::cout << "char: "
-				  << input[0]
+		std::cout << "char:'"
+				  << input[0] << "'"
 				  << std::endl;
 	}
 	else if (CheckIsInt(input) && atoi(input.c_str()) > 31 && atoi(input.c_str()) < 127)
 	{
-		std::cout << "char: " << static_cast<char>(atoi(input.c_str())) << std::endl;
+		std::cout << "char:'" << static_cast<char>(atoi(input.c_str())) << "'" << std::endl;
 	}
 
 	else if (CheckIsInt(input) && ((atoi(input.c_str()) < 32 && atoi(input.c_str()) >= 0) || atoi(input.c_str()) == 127))
