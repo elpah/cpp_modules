@@ -30,13 +30,13 @@ bool checkInput(const std::string &input)
 	bool isDecimal = false;
 	bool hasDigit = false;
 
-	if (checkIsPseudoLiteral(input))
+	if (checkIsPseudoLiteral(input) || (input.length() == 1 && !isdigit(input[0])))
 		return (true);
 	if (input.empty())
 		return false;
 	if (input[i] == '-')
 		i++;
-	for (i; i < input.size(); i++)
+	for (; i < input.size(); i++)
 	{
 		if (isdigit(input[i]))
 			hasDigit = true;
@@ -63,15 +63,33 @@ void PrintInt(const std::string &input)
 {
 	if (checkIsPseudoLiteral(input))
 	{
-		std::cout << "int: impossible." << std::endl;
+		std::cout << "int: impossible" << std::endl;
 		return;
 	}
-	std::cout << "int: " << atoll(input.c_str()) << std::endl;
+
+	if (input.length() == 1 && !isdigit(input[0]))
+	{
+		std::cout << "int: "
+				  << static_cast<int>(input[0])
+				  << std::endl;
+		return;
+	}
+	std::cout << "int: "
+			  << atoll(input.c_str())
+			  << std::endl;
 }
 
 void PrintDouble(const std::string &input)
 {
-	if (input == "-inf" || input == "-inff")
+	if (input.length() == 1 && !isdigit(input[0]))
+	{
+		std::cout << "double: "
+				  << std::fixed
+				  << std::setprecision(1)
+				  << static_cast<double>(input[0])
+				  << std::endl;
+	}
+	else if (input == "-inf" || input == "-inff")
 		std::cout << "double: -inf" << std::endl;
 	else if (input == "+inf" || input == "+inff")
 		std::cout << "double: +inf" << std::endl;
@@ -87,7 +105,16 @@ void PrintDouble(const std::string &input)
 
 void PrintFloat(const std::string &input)
 {
-	if (input == "-inf" || input == "-inff")
+	if (input.length() == 1 && !isdigit(input[0]))
+	{
+		std::cout << "float: "
+				  << std::fixed
+				  << std::setprecision(1)
+				  << static_cast<float>(input[0])
+				  << "f"
+				  << std::endl;
+	}
+	else if (input == "-inf" || input == "-inff")
 		std::cout << "float: -inff" << std::endl;
 	else if (input == "+inf" || input == "+inff")
 		std::cout << "float: +inff" << std::endl;
@@ -103,10 +130,17 @@ void PrintFloat(const std::string &input)
 
 void PrintChar(const std::string &input)
 {
-	if (CheckIsInt(input) && atoi(input.c_str()) > 31 && atoi(input.c_str()) < 127)
+	if (input.length() == 1 && !isdigit(input[0]))
+	{
+		std::cout << "char: "
+				  << input[0]
+				  << std::endl;
+	}
+	else if (CheckIsInt(input) && atoi(input.c_str()) > 31 && atoi(input.c_str()) < 127)
 	{
 		std::cout << "char: " << static_cast<char>(atoi(input.c_str())) << std::endl;
 	}
+
 	else if (CheckIsInt(input) && ((atoi(input.c_str()) < 32 && atoi(input.c_str()) >= 0) || atoi(input.c_str()) == 127))
 		std::cout << "char: Non displayable" << std::endl;
 	else
@@ -115,13 +149,14 @@ void PrintChar(const std::string &input)
 
 void ScalarConverter::convert(const std::string &input)
 {
-	if (checkInput(input))
+	if (!checkInput(input))
 	{
-		PrintChar(input);
-		PrintInt(input);
-		PrintFloat(input);
-		PrintDouble(input);
-	}
-	else
 		std::cout << "Error: Invalid input format." << std::endl;
+		return;
+	}
+
+	PrintChar(input);
+	PrintInt(input);
+	PrintFloat(input);
+	PrintDouble(input);
 }
