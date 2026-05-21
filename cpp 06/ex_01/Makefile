@@ -1,4 +1,4 @@
-SRC			= main.cpp Serializer.cpp Data.cpp main.cpp
+SRC			= main.cpp Serializer.cpp main.cpp
 
 CXX			= c++
 
