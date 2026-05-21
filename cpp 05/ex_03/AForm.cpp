@@ -21,8 +21,7 @@ AForm::AForm() : _name(""), _gradeToSign(1), _gradeToExecute(1), _isSigned(false
 	std::cout << "AForm default constructor called." << std::endl;
 }
 
-AForm::AForm(const std::string &name, int gradeToSign, int gradeToExecute) : _name(name),
-																			 _gradeToSign(gradeToSign), _gradeToExecute(gradeToExecute), _isSigned(false)
+AForm::AForm(const std::string &name, int gradeToSign, int gradeToExecute) : _name(name),															 _gradeToSign(gradeToSign), _gradeToExecute(gradeToExecute), _isSigned(false)
 {
 	if (gradeToSign > 150 || gradeToExecute > 150)
 		throw GradeTooLowException();
@@ -32,8 +31,7 @@ AForm::AForm(const std::string &name, int gradeToSign, int gradeToExecute) : _na
 	std::cout << "AForm  constructor called with params." << std::endl;
 }
 
-AForm::AForm(const AForm &other) : _name(other._name), _gradeToSign(other._gradeToSign),
-								   _gradeToExecute(other._gradeToExecute), _isSigned(other._isSigned)
+AForm::AForm(const AForm &other) : _name(other._name), _gradeToSign(other._gradeToSign),						   _gradeToExecute(other._gradeToExecute), _isSigned(other._isSigned)
 {
 	std::cout << "AForm copy constructor called" << std::endl;
 }
