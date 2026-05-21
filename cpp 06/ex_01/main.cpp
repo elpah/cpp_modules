@@ -5,8 +5,8 @@ int main(void)
 	Data person;
 	person.name = "elpah";
 	person.age = 10;
-
 	Data *ptr = &person;
+
 	uintptr_t raw = Serializer::serialize(ptr);
 	Data *restored = Serializer::deserialize(raw);
 
