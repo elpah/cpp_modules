@@ -1,10 +1,10 @@
 #include "Base.hpp"
 
 Base::~Base() {}
+Base::Base() {}
 
 Base *generate(void)
 {
-	std::srand(std::time(NULL));
 	int number = rand() % 3;
 
 	if (number == 0)
@@ -21,5 +21,48 @@ Base *generate(void)
 	{
 		std::cout << "generated type C" << std::endl;
 		return new C();
+	}
+}
+
+void identify(Base *p)
+{
+	if (dynamic_cast<A *>(p))
+		std::cout << "type: A" << std::endl;
+	if (dynamic_cast<B *>(p))
+		std::cout << "type: B" << std::endl;
+	if (dynamic_cast<C *>(p))
+		std::cout << "type: C" << std::endl;
+	return;
+}
+
+void identify(Base &p)
+{
+	try
+	{
+		((void)dynamic_cast<A &>(p));
+		std::cout << "type ref: A" << std::endl;
+		return;
+	}
+	catch (const std::exception &)
+	{
+	}
+
+	try
+	{
+		((void)dynamic_cast<B &>(p));
+		std::cout << "type ref: B" << std::endl;
+		return;
+	}
+	catch (const std::exception &)
+	{
+	}
+	try
+	{
+		((void)dynamic_cast<C &>(p));
+		std::cout << "type ref: C" << std::endl;
+		return;
+	}
+	catch (const std::exception &)
+	{
 	}
 }
