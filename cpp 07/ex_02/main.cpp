@@ -1,5 +1,6 @@
 #include <iostream>
-#include <Array.hpp>
+#include "Array.hpp"
+#include "Array.tpp"
 
 #define MAX_VAL 750
 int main(int, char **)
@@ -13,7 +14,6 @@ int main(int, char **)
         numbers[i] = value;
         mirror[i] = value;
     }
-    // SCOPE
     {
         Array<int> tmp = numbers;
         Array<int> test(tmp);
