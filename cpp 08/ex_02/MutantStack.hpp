@@ -6,8 +6,8 @@
 #include <iostream>
 #include <stack>
 
-template <typename T, typename Container = std::deque<T>>
-class MutantStack : public std::stack<T, Container>
+template <typename T>
+class MutantStack : public std::stack<T>
 {
 public:
 	MutantStack();
@@ -15,7 +15,7 @@ public:
 	MutantStack &operator=(const MutantStack &other);
 	~MutantStack();
 
-	typedef typename Container::iterator iterator;
+	typedef typename std::stack<T>::container_type::iterator iterator;
 	iterator end();
 	iterator begin();
 };
