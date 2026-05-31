@@ -51,3 +51,14 @@ int Span::shortestSpan()
 	}
 	return shortest;
 }
+
+int Span::longestSpan()
+{
+	int length = _storage.size();
+	if (length < 2)
+		throw std::runtime_error("Not enough elements");
+	std::vector<int> temp(_storage);
+	std::sort(temp.begin(), temp.end());
+	int longest = (temp[length - 1] - temp[0]);
+	return longest;
+}

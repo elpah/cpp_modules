@@ -18,6 +18,7 @@ public:
 	void addNumber(int to_add);
 	int shortestSpan();
 	int longestSpan();
+	
 	~Span();
 };
 
