@@ -3,17 +3,12 @@ Span::Span() : _max_element(0)
 {
 	std::cout << "Span defualt constructor called" << std::endl;
 }
-Span::Span(int N) : _max_element(N)
+Span::Span(unsigned int N) : _max_element(N)
 {
 	std::cout << "Span constructor called with params" << std::endl;
 }
 
-Span::~Span()
-{
-	std::cout << "Span destructor called" << std::endl;
-}
-
-Span::Span(const Span &other) : _max_element(other._max_element), _storage(other._storage)
+Span::Span(const Span &other) : _storage(other._storage), _max_element(other._max_element)
 {
 	std::cout << "Span copy constructor called" << std::endl;
 }
@@ -30,10 +25,9 @@ Span &Span::operator=(const Span &other)
 
 void Span::addNumber(int to_add)
 {
-	if (_storage.size() < _max_element)
-		_storage.push_back(to_add);
-	else
+	if (_storage.size() >= _max_element)
 		throw std::out_of_range("Storage is already full");
+	_storage.push_back(to_add);
 }
 
 int Span::shortestSpan()
@@ -54,11 +48,16 @@ int Span::shortestSpan()
 
 int Span::longestSpan()
 {
-	int length = _storage.size();
+	size_t length = _storage.size();
 	if (length < 2)
 		throw std::runtime_error("Not enough elements");
 	std::vector<int> temp(_storage);
 	std::sort(temp.begin(), temp.end());
 	int longest = (temp[length - 1] - temp[0]);
 	return longest;
+}
+
+Span::~Span()
+{
+	std::cout << "Span destructor called" << std::endl;
 }
